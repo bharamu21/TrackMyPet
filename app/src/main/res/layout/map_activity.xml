@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:padding="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/google_auto_complete"
+                    android:layout_height="50dp"
+                    android:background="@drawable/search_box_background"
+                    android:elevation="10dp"
+                    android:padding="10dp"
+
+                    android:hint="Search place Here"
+                    android:fontFamily="sans-serif-condensed"
+                    />
+
+                <com.google.android.gms.maps.MapView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="60dp"
+                    android:id="@+id/map">
+
+                </com.google.android.gms.maps.MapView>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    app:backgroundTint="#09a3f1"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:src="@drawable/check"
+                    />
+
+            </android.support.design.widget.CoordinatorLayout>
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,163 @@
+<resources>
+    <string name="app_name">TrackMyPet</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="google_play_update">Google Play is required!\nPlease update Google Play.</string>
+    <string name="internet_connectivity">Do you want to enable internet connectivity</string>
+    <string name="submit_btn">submit</string>
+    <string name="please_wait_loading">Please wait...</string>
+    <string name="sign_up_success_message">You are successfully singed up</string>
+    <string name="login_success_message">You are logged in successfully</string>
+
+    <!--Navbar list items-->
+    <string name="sign_up">Sign up</string>
+    <string name="sign_in">Sign in</string>
+    <string name="home">Home</string>
+    <string name="missing_pets_list">Lost pets list</string>
+    <string name="found_pets_list">Found pets list</string>
+    <string name="about_app">About app</string>
+    <string name="sign_out">Sign out</string>
+
+    <!--Error messages-->
+    <string name="sign_up_user_name_error">User nameshould not be empty</string>
+    <string name="sign_up_user_name_length_error">User name should have minimum 3 characters</string>
+    <string name="email_error">Please enter valid email address</string>
+    <string name="password_error">Password should not be empty</string>
+    <string name="sign_up_password_length_error">Password should have minimum 6 characters</string>
+    <string name="sign_up_confirm_password_error">Confirm password should not be empty</string>
+    <string name="password_mismatch_error">Password and confirm password should be same</string>
+    <string name="sign_up_agree_terms_error">Please agree to terms and conditions</string>
+    <string name="sign_in_password_error">Password is wrong</string>
+
+    <!--Home screen-->
+    <string name="title">TrackMyPet.com</string>
+    <string name="sub_title">Next Generation Pet Tracking</string>
+
+    <!--sign up scree-->
+    <string name="sign_up_title">Create an account</string>
+    <string name="sign_up_user_name">User name*</string>
+    <string name="sign_up_email">Email*</string>
+    <string name="sign_up_password">Password*</string>
+    <string name="sign_up_confirm_password">Confirm password*</string>
+    <string name="signup_button">Sign up</string>
+    <string name="agree_terms_conditions">I agree to the </string>
+    <string name="terms_conditions_description"> Terms &amp; Conditions</string>
+
+
+    <!--Sign in screen-->
+    <string name="sign_in_title">Wel come to TrackMyPet</string>
+    <string name="signin_button">Sign in</string>
+    <string name="user_register">Register</string>
+    <string name="forgot_password">Forgot Password ?</string>
+
+    <array name="navbar_list">
+        <item name="home">SignIn</item>
+        <item name="missing_pet">Lost pet</item>
+        <item name="found_pet">Found pet</item>
+        <item name="missing_pets_list">Lost pets list</item>
+        <item name="found_pets_list">Found pets list</item>
+        <item name="pet_stores">Pet stores</item>
+        <item name="pet_clinic">Pet Vets</item>
+        <item name="pet_shelter">Pet Shelter</item>
+        <item name="buy_pet">Buy pet</item>
+        <item name="sell_pet">Sell pet</item>
+        <item name="breed_my_pet">Mate It</item>
+        <item name="look_for_a_suitable_home_for_my_Pet">Find a home for your Pet</item>
+        <item name="pet_adopt">Adopt Pet</item>
+        <item name="bereavement">Dealing with Bereavement</item>
+        <item name="">Information Exchange</item>
+        <item name="about_app">About app</item>
+    </array>
+    <array name="navbar_list_images">
+        <item name="sign_in">@drawable/sign_in</item>
+        <item name="missing_pet">@drawable/lost</item>
+        <item name="found_pet">@drawable/found</item>
+        <item name="missing_list">@drawable/missing_list</item>
+        <item name="found_list">@drawable/found_list</item>
+        <item name="pet_shop">@drawable/pet_shop</item>
+        <item name="pet_clinic">@drawable/pet_clinic</item>
+        <item name="pet_clinic">@drawable/pet_shelter</item>
+        <item name="buy_pet">@drawable/buy_pet</item>
+        <item name="pet_sell">@drawable/pet_sell</item>
+        <item name="breed_pet">@drawable/breed_pet</item>
+        <item name="pet_care">@drawable/pet_care</item>
+        <item name="pet_sitter">@drawable/pet_sitter</item>
+        <item name="burry_pet">@drawable/burry_icon</item>
+        <item name="forum">@drawable/forum</item>
+        <item name="about_app">@drawable/info</item>
+        <item name="log_out">@drawable/sign_out</item>
+    </array>
+
+    <array name="navbar_list_user_login">
+        <item name="missing_pet">Lost pet</item>
+        <item name="found_pet">Found pet</item>
+        <item name="missing_pets_list">Lost pets list</item>
+        <item name="found_pets_list">Found pets list</item>
+        <item name="pet_stores">Pet stores</item>
+        <item name="pet_clinic_img">Pet Vets</item>
+        <item name="pet_shelter">Pet Shelter</item>
+        <item name="buy_pet">Buy pet</item>
+        <item name="sell_pet">Sell pet</item>
+        <item name="breed_my_pet">Mate It</item>
+        <item name="look_for_a_suitable_home_for_my_Pet">Find a home for your Pet</item>
+        <item name="pet_adopt">Adopt Pet</item>
+        <item name="bereavement">Dealing with Bereavement</item>
+        <item name="">Information Exchange</item>
+        <item name="about_app">About app</item>
+        <item name="sign_out">Sign out</item>
+    </array>
+
+    <array name="navbar_list_images_user_login">
+        <item name="missing_pet">@drawable/lost</item>
+        <item name="found_pet">@drawable/found</item>
+        <item name="missing_list">@drawable/missing_list</item>
+        <item name="found_list">@drawable/found_list</item>
+        <item name="pet_shop">@drawable/pet_shop</item>
+        <item name="pet_clinic">@drawable/pet_clinic</item>
+        <item name="pet_clinic">@drawable/pet_shelter</item>
+        <item name="buy_pet">@drawable/buy_pet</item>
+        <item name="pet_sell">@drawable/pet_sell</item>
+        <item name="breed_pet">@drawable/breed_pet</item>
+        <item name="pet_care">@drawable/pet_care</item>
+        <item name="pet_sitter">@drawable/pet_sitter</item>
+        <item name="burry_pet">@drawable/burry_icon</item>
+        <item name="forum">@drawable/forum</item>
+        <item name="about_app">@drawable/info</item>
+        <item name="log_out">@drawable/sign_out</item>
+    </array>
+
+    <!--home screen-->
+    <string name="lost_pet">Lost A Pet</string>
+    <string name="found_pet">Found A Pet</string>
+
+    <!--Map Activity-->
+    <string name="map_activity_title">Select Loation</string>
+
+    <!--lost pet details activity screen-->
+    <string name="pet_details_activity_title">Enter pet details</string>
+    <string name="pet_type">Dog, Cat, Bird etc</string>
+    <string name="pet_type_hint">Pet Type *</string>
+    <string name="pet_name_hint">Pet Name *</string>
+    <string name="pet_breed_hint">Breed *</string>
+    <string name="pet_age_hint">Age *</string>
+    <string name="pet_sex_hint">Sex *</string>
+    <string name="pet_colour_hint">Colour *</string>
+    <string name="pet_info_hint">Additional info*</string>
+    <string name="pet_info">e.g. Distinctive features, Microchip number, etc</string>
+    <string name="pet_note_message">* Indicate required fields</string>
+    <string name="owner_name">Pet Owner Name *</string>
+    <string name="permanent_address">Owner Permanent Address *</string>
+    <string name="pet_lost_address">Enter pet lost place address*</string>
+    <string name="owner_mobile_no">Owner mobile no *</string>
+    <string name="owner_alternate_mobile_no">Owner alternate mobile no </string>
+
+    <!--lost pet details activity screen-->
+
+    <string name="found_pet_name_hint">Pet Name</string>
+    <string name="founder_name">Pet Founder Name</string>
+    <string name="founder_mobile_no">Founder mobile no *</string>
+    <string name="founder_alternate_mobile_no">Founder alternate mobile no </string>
+
+
+</resources>
