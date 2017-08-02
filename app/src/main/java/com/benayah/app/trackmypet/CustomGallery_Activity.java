@@ -2,25 +2,29 @@ package com.benayah.app.trackmypet;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 
 import com.benayah.app.trackmypet.Adapters.GridView_Adapter;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 /**
  * Created by SONU on 31/10/15.
  */
 public class CustomGallery_Activity extends AppCompatActivity implements View.OnClickListener {
-    private static Button selectImages;
-    private static GridView galleryImagesGridView;
-    private static ArrayList<String> galleryImageUrls;
-    private static GridView_Adapter imagesAdapter;
+    private  Button selectImages;
+    private  GridView galleryImagesGridView;
+    private  ArrayList<String> galleryImageUrls;
+    private  GridView_Adapter imagesAdapter;
 
 
     @Override
@@ -67,6 +71,8 @@ public class CustomGallery_Activity extends AppCompatActivity implements View.On
     private void setUpGridView() {
         imagesAdapter = new GridView_Adapter(CustomGallery_Activity.this, galleryImageUrls);
         galleryImagesGridView.setAdapter(imagesAdapter);
+
+        //convertToBase64(galleryImageUrls.get(0));
     }
 
     //Set Listeners method
@@ -93,6 +99,7 @@ public class CustomGallery_Activity extends AppCompatActivity implements View.On
         }
 
     }
+
 
     @Override
     public void onClick(View view) {
