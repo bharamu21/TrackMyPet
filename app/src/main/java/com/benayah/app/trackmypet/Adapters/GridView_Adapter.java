@@ -18,16 +18,14 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.util.ArrayList;
 
-/**
- * Created by SONU on 31/10/15.
- */
+
 public class GridView_Adapter extends BaseAdapter {
     private Context context;
     private ArrayList<String> imageUrls;
     private SparseBooleanArray mSparseBooleanArray;//Variable to store selected Images
-    ArrayList<String> mTempArry = new ArrayList<String>();
+    private ArrayList<String> mTempArry = new ArrayList();
     private DisplayImageOptions options;
-    ImageLoader imageLoader;
+    private ImageLoader imageLoader;
     //private boolean isCustomGalleryActivity;//Variable to check if gridview is to setup for Custom Gallery or not
 
     public GridView_Adapter(Context context, ArrayList<String> imageUrls) {
@@ -116,8 +114,6 @@ public class GridView_Adapter extends BaseAdapter {
                         mCheckBox.setVisibility(View.VISIBLE);
                         mTempArry.add(imageUrls.get(position));
                         //System.out.println("mTempArry.size() = "+mTempArry.size());
-
-
                     }
                     else
                     {
