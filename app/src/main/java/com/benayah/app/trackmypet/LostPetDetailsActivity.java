@@ -1,6 +1,7 @@
 package com.benayah.app.trackmypet;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.Image;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.MediaStore;
@@ -18,6 +20,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,6 +48,12 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -69,8 +78,10 @@ public class LostPetDetailsActivity extends AppCompatActivity implements View.On
     List<String> selectedImages;
     LinearLayout addPetImage;
     //FrameLayout mAddPetImage;
-    ImageView imageView;
+    ImageView imageView,image;
     Button mOpenCustomGalleryBtn;
+    String ret = "";
+    ArrayList<String> base64StringList;
 
     Activity activity;
 
@@ -107,7 +118,7 @@ public class LostPetDetailsActivity extends AppCompatActivity implements View.On
         {
             placeDetails = (Place) bundle.getSerializable("place_details");
 
-            Log.d("place_details",placeDetails.getPlaceAddress()+","+placeDetails.getLatitude()+","+placeDetails.getLongitude());
+//            Log.d("place_details",placeDetails.getPlaceAddress()+","+placeDetails.getLatitude()+","+placeDetails.getLongitude());
 
         }
 
@@ -139,7 +150,10 @@ public class LostPetDetailsActivity extends AppCompatActivity implements View.On
 
         mPetLostPlaceAddress = (TextInputLayout) findViewById(R.id.pet_lost_place_address_wrapper);
         mPetLostPlaceAddress.setHint(getResources().getString(R.string.pet_lost_address));
-        mPetLostPlaceAddress.getEditText().setText(placeDetails.getPlaceAddress());
+        if(placeDetails != null)
+        {
+            mPetLostPlaceAddress.getEditText().setText(placeDetails.getPlaceAddress());
+        }
 
         mOwnerPermanentAddress = (TextInputLayout) findViewById(R.id.lost_pet_owner_address_wrapper);
         mOwnerPermanentAddress.setHint(getResources().getString(R.string.permanent_address));
@@ -156,11 +170,15 @@ public class LostPetDetailsActivity extends AppCompatActivity implements View.On
         mLostPetDetailsSubmitBtn = (Button) findViewById(R.id.lost_pet_submit_btn);
         mLostPetDetailsSubmitBtn.setOnClickListener(this);
 
+        /*mGotoImageView = (Button) findViewById(R.id.goto_image);
+        mGotoImageView.setOnClickListener(this);*/
+
         mOpenCustomGalleryBtn = (Button) findViewById(R.id.open_custom_gallery);
         mOpenCustomGalleryBtn.setOnClickListener(this);
         imageView = (ImageView) findViewById(R.id.add_image_view);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 
+        image = (ImageView) findViewById(R.id.image_view);
 
 
         ll_dots = (LinearLayout) findViewById(R.id.ll_dots);
@@ -213,6 +231,15 @@ public class LostPetDetailsActivity extends AppCompatActivity implements View.On
                 //Start Custom Gallery Activity by passing intent id
                 startActivityForResult(new Intent(LostPetDetailsActivity.this, CustomGallery_Activity.class), CustomGallerySelectId);
                 break;
+
+            /*case R.id.goto_image:
+
+                Bundle bundle = new Bundle();
+                bundle.putString("base64_image",ret);
+                Intent imageIntent = new Intent(LostPetDetailsActivity.this,ImageViewActivity.class);
+                imageIntent.putExtras(bundle);
+                startActivity(imageIntent);
+                break;*/
         }
     }
 
@@ -266,11 +293,39 @@ public class LostPetDetailsActivity extends AppCompatActivity implements View.On
         }
     }
 
+    public void convertToBase64(String path)
+    {
+
+        try {
+            File queryImg = new File(path);
+            int imageLen = (int)queryImg.length();
+            byte [] imgData = new byte[imageLen];
+            FileInputStream fis = new FileInputStream(queryImg);
+            fis.read(imgData);
+            ret = Base64.encodeToString(imgData, Base64.NO_WRAP);
+            fis.close();
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+   /* private void decodeString(String ret) {
+        byte[] imageBytes = Base64.decode(ret,Base64.NO_WRAP);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes,0,imageBytes.length);
+
+        image.setImageBitmap(bitmap);
+    }*/
+
     //Load GridView
     private void loadGridView(ArrayList<String> imagesArray) {
         addBottomDots(0);
         ViewPagerAdapter adapter = new ViewPagerAdapter(LostPetDetailsActivity.this, imagesArray);
         viewPager.setAdapter(adapter);
+        new GetBase64ImageStringAsyncTask().execute(imagesArray);
     }
 
     //Read Shared Images
@@ -319,6 +374,26 @@ public class LostPetDetailsActivity extends AppCompatActivity implements View.On
                 return true;*/
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private class GetBase64ImageStringAsyncTask extends AsyncTask<ArrayList<String>,Void,Void> {
+
+        ProgressDialog dialog;
+
+        @Override
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(getApplicationContext());
+            dialog.setTitle("Please wait...");
+            dialog.setCancelable(false);
+            dialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(ArrayList<String>... params) {
+
+
+            return null;
         }
     }
 }
