@@ -293,7 +293,7 @@ public class LostPetDetailsActivity extends AppCompatActivity implements View.On
         }
     }
 
-    public void convertToBase64(String path)
+    public void convertImageToBase64(String path)
     {
 
         try {
@@ -392,7 +392,10 @@ public class LostPetDetailsActivity extends AppCompatActivity implements View.On
         @Override
         protected Void doInBackground(ArrayList<String>... params) {
 
-
+            for(int i=0; i<params[0].size();i++)
+            {
+                convertImageToBase64(params[0].get(i));
+            }
             return null;
         }
     }
